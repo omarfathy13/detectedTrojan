@@ -9,12 +9,11 @@ $scripts = $matches['0'];
 if(isset($_GET['i'])){
      $pat = intval($_GET['i']);
 }else{
-    $i = 0;
     $_SESSION['i'] = $_SESSION['i'] + 1;
     $pat = $_SESSION['i'];
 }
 
-
+$i = 0; 
 foreach ($scripts AS $script)
 {
      if($i === $pat && count($scripts) >= $pat){
@@ -26,12 +25,12 @@ foreach ($scripts AS $script)
     $i++;
 }
 if(isset($_GET['i'])){
-echo "<pre>";
-echo  htmlspecialchars($scripts[$_SESSION['i']]);
-echo "<pre>";
+    echo "<pre>";
+    echo  htmlspecialchars($scripts[$_SESSION['i']]);
+    echo "<pre>";
 }else{
-echo $file;
-$to = $actual_link = "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']."?i=".$pat;
-echo '<meta http-equiv="refresh" content="0"; url='.$to.'" />';
+    echo $file;
+    $to = $actual_link = "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']."?i=".$pat;
+    echo '<meta http-equiv="refresh" content="0"; url='.$to.'" />';
 }
 
